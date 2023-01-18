@@ -1,0 +1,22 @@
+# - name: Test_Alperen
+#   hosts: all
+#   tasks:
+#     - name: "Alperen Hello World Test"
+#       include_role:
+#         name: test_playbook
+#         tasks_from: helloworld.yml
+
+- name: Test Alperen
+  hosts: all
+  roles:
+    - test_playbook
+  # tasks:
+  #   - name: "Alperen Uptime Test"
+  #     include_role:
+  #       name: test_playbook
+  #       tasks_from: uptime.yml
+  # tasks:
+  #   - name: "Alperen Hostname Test"
+  #     include_role:
+  #       name: test_playbook
+  #       tasks_from: currenthost.yml

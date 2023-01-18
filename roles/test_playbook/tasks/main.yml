@@ -1,0 +1,30 @@
+---
+# - name: "Load extra variables"
+#   include_vars:
+#     file: vars/helloworldvars.yml
+
+# - name: "HelloWorld"
+#   shell: echo 'Hello World'
+#   register: printout #if you want to use the print in task, use with stdout, if you want to use from the vars, comment this one and user it in msg without stdout
+
+- name: "Get hostname"
+  shell: echo $(hostname)
+  register: currenthost
+
+- name: "Get uptime"
+  shell: echo $(uptime | sed 's/.*up \([^,]*\), .*/\1/')
+  register: currentuptime
+
+#---------------------------------------------------------
+
+- name: Print Results
+  debug:
+    msg: "{{ printout }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+    #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
+
+
+    # msg: "Hello, my name is: {{ currenthost }}"
+    # msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+    # msg: "Current uptime is: {{ currentuptime }}"
+    # msg: "System {{ uptime2 }} "
+

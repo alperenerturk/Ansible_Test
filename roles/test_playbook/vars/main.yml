@@ -1,0 +1,7 @@
+---
+test: /etc/foo
+printout: "Hello World"
+
+# - name: "Get uptime information"
+#    ansible.builtin.shell: /usr/bin/uptime
+#    register: uptime2
