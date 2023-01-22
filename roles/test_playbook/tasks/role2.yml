@@ -7,10 +7,23 @@
 #   shell: echo 'Hello World'
 #   register: printout #if you want to use the print in task, use with stdout, if you want to use from the vars, comment this one and user it in msg without stdout
 
-#------------------------------
-- name: "{{ rolenum }} starting"
-  include_tasks: "{{ rolenum }}.yml"
-  
+- name: "Get hostname"
+  shell: echo $(hostname)
+  register: currenthost
+
+- name: "Get uptime"
+  shell: echo $(uptime | sed 's/.*up \([^,]*\), .*/\1/')
+  register: currentuptime
+
+#---------------------------------------------------------
+
+- name: Print Results
+  debug:
+    msg: "{{ printout }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+
+- name: Print Results
+  debug:
+    msg: "{{ rolenum }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
     #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
 
 

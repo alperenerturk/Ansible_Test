@@ -1,0 +1,4 @@
+---
+test: /etc/foo
+printout: "Hello World"
+rolenum: "role1"

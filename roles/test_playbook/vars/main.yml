@@ -1,7 +1,10 @@
+# ---
+# test: /etc/foo
+# printout: "Hello World"
 ---
 test: /etc/foo
 printout: "Hello World"
-
+rolenum: "role2"
 # - name: "Get uptime information"
 #    ansible.builtin.shell: /usr/bin/uptime
 #    register: uptime2
