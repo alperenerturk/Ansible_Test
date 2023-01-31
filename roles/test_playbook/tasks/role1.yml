@@ -19,6 +19,10 @@
 
 - name: Print Results
   debug:
+    msg: "{{ printout }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+
+- name: Print Results
+  debug:
     msg: "{{ rolenum }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
     #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
 

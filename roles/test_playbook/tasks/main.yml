@@ -8,8 +8,19 @@
 #   register: printout #if you want to use the print in task, use with stdout, if you want to use from the vars, comment this one and user it in msg without stdout
 
 #------------------------------
-- name: "{{ rolenum }} starting"
-  include_tasks: "{{ rolenum }}.yml"
+- name: "{{ rolenum }} 1 starting"
+  #include_tasks: "{{ rolenum }}.yml"
+  debug:
+    msg: "{{ rolenum }}"
+  when: (rolenum == 'role1' and ansible_distribution == "Ubuntu")
+  #when:  "{{ rolenum }} is role1 and role1=even"
+
+- name: "{{ rolenum }} 2 starting"
+  #include_tasks: "{{ rolenum }}.yml"
+  debug:
+    msg: "{{ rolenum }}"
+  when: (rolenum == 'role2' and ansible_distribution == "Ubuntu")
+  #when:  "{{ rolenum }} is role2 and role2=odd"
   
     #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
 

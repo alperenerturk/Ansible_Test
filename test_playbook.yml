@@ -10,7 +10,10 @@
   hosts: all
   roles:
     - role: test_playbook
-      rolenum: "role1" 
+      rolenum: "role1"
+      #number: "4"
+      #rolenum: "{{ 'even' if {{ number }}%2 is '0' else 'odd' }}"
+
   # tasks:
   #   - name: "Alperen Uptime Test"
   #     include_role:

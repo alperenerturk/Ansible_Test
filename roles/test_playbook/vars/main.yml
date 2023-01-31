@@ -4,7 +4,26 @@
 ---
 test: /etc/foo
 printout: "Hello World"
-rolenum: "role2"
+rolenum: "role1"
+number: "4"
+nodes:
+  - node1
+  - node2
+  - node3
+  - node4
+  - node5
+var1:
+      - test1
+      - test2
+      - test3
+      - test4
+      - test5
+    odd_var: "{{ var1[::2] | join(',') }}"
+    even_var: "{{ var1[1::2] | join(',') }}"
+    
+even: "{{ var1 | select('search','.*[02468]$') | join(',') }}"      
+odd: "{{ var1 | select('search','.*[13579]$') | join(',') }}"
+
 # - name: "Get uptime information"
 #    ansible.builtin.shell: /usr/bin/uptime
 #    register: uptime2
