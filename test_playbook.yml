@@ -10,9 +10,9 @@
   hosts: all
   roles:
     - role: test_playbook
-      rolenum: role1
-      number: 4
-      roletype: "{{ 'even' if number % 2 == 0 else 'odd' }}" #if else conditioning and % requires {} brackets
+     #rolenum: role1
+     #number: 4
+     #roletype: "{{ 'even' if number % 2 == 0 else 'odd' }}" #if else conditioning and % requires {} brackets
 
   # tasks:
   #   - name: "Alperen Uptime Test"

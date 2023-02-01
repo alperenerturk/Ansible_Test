@@ -4,15 +4,16 @@
 ---
 test: /etc/foo
 printout: "Hello World"
-rolenum: "role1"
-number: "4"
+#rolenum: "role1"
+rolenum: role1
+number: 4
+roletype: "{{ 'even' if number % 2 == 0 else 'odd' }}" #if else conditioning and % requires {} brackets
 nodes:
   - node1
   - node2
   - node3
   - node4
   - node5
-
 
 # - name: "Get uptime information"
 #    ansible.builtin.shell: /usr/bin/uptime
