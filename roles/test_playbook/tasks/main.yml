@@ -13,14 +13,14 @@
   debug:
     msg: "{{ rolenum }}"
   #when: (rolenum == 'role1' and ansible_distribution == "Ubuntu")
-  when: rolenum == 'role1' and roletype == 'even' #do not need any brackets
+  when: rolenum == 'role1' and roletype == 'even' #does not need any brackets
 
 - name: "{{ rolenum }} 2 is {{ roletype }} and it is starting"
   #include_tasks: "{{ rolenum }}.yml"
   debug:
     msg: "{{ rolenum }}"
   #when: (rolenum == 'role2' and ansible_distribution == "Ubuntu")
-  when: rolenum == 'role2' and roletype == 'odd' #do not need any brackets
+  when: rolenum == 'role2' and roletype == 'odd' #does not need any brackets
   
     #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
 
