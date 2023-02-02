@@ -23,7 +23,13 @@
 
 - name: Print Results
   debug:
-    msg: "{{ rolenum }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+    #msg: "{{ rolenum }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+    msg: "{{ index }} - {{ value }}, my name is: {{ ansible_host }} {{ currenthost.stdout }} and this system is up for: {{ currentuptime.stdout }} "
+    #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
+  loop: "{{ rolenum|flatten(levels=1) }}"
+  loop_control:
+    index_var: index
+    loop_var: value #if you do not change loop item with another variable, the one from playbook will have more precedence
     #msg: "{{ printout.stdout }}, my name is: {{ inventory_hostname }} and this system is up for: {{ currentuptime.stdout }} "
 
 

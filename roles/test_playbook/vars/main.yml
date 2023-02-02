@@ -4,9 +4,11 @@
 ---
 test: /etc/foo
 printout: "Hello World"
-#rolenum: "role1"
-rolenum: role1
-number: 4
+#rolenum: role1
+rolenum: 
+  - role1
+  - role2
+number: 3
 roletype: "{{ 'even' if number % 2 == 0 else 'odd' }}" #if else conditioning and % requires {} brackets
 nodes:
   - node1
